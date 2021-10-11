@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    
+    <form onsubmit="return validate()" action="https://www.geeksforgeeks.org/html-action-attribute/">
+    
+    <input type="username" id="uname" placeholder="Username">
+        <label id="lbuser" style="color: red;visibility: hidden">Invalid!</label><br><br>
+        
+        <input type="email" id="mail" placeholder="Email">
+        <label id="lbmail" style="color: red;visibility: hidden">Invalid!</label><br><br>
+     <input type="password" id="pass" placeholder="Password">
+        <label id="lbpass" style="color: red;visibility: hidden">Invalid!</label><br>
+        
+        <button type="submit">SUBMIT</button>
+        <button type="reset">Click to Reset</button>
+     </form>
+    </body>
+</html>
+
+<script type="text/javascript">
+
+function validate(){
+    
+    var username = document.getElementById("uname");
+    var email = document.getElementById("mail");
+    var password = document.getElementById("pass");
+    
+    if(username.value.trim()=="" && email.value.trim()=="" && password.value.trim()==""){
+        alert("Blank Values not Allowed")
+        username.style.border = "solid 4px red";
+         document.getElementById("lbuser").style.visibility="visible";
+        email.style.border = "solid 4px red";
+         document.getElementById("lbmail").style.visibility="visible";
+        password.style.border = "solid 4px red";
+         document.getElementById("lbpass").style.visibility="visible";
+        return false;
+    }
+    else if(username.value.trim()==""){
+        alert("Blank Username")
+        username.style.border = "solid 4px red";
+        document.getElementById("lbuser").style.visibility="visible";
+        return false;
+    }
+    else if(email.value.trim()==""){
+        alert("Blank Email Address")
+        email.style.border = "solid 4px red";
+         document.getElementById("lbmail").style.visibility="visible";
+        return false;
+    }
+    else if(password.value.trim()==""){
+        alert("Blank Password")
+        password.style.border = "solid 4px red";
+         document.getElementById("lbpass").style.visibility="visible";
+        return false;
+    }
+    else if(password.value.trim().length<5){
+        alert("Password too Shawtie")
+        password.style.border = "solid 4px red";
+        return false;
+    }
+    else{
+        username.style.border = "solid 4px green";
+        password.style.border = "solid 4px green";
+        email.style.border = "solid 4px green";
+        return true;
+    }
+}  
+
+</script>
